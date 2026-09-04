@@ -49,7 +49,7 @@ const App = () => {
             <div className="note">
               <h1>{dets.title}</h1>
               <p>{dets.description}</p>
-              <button onClick={()=>{
+              <button className="delete" onClick={()=>{
                 deleteHandler(dets._id)
               }}> delete</button>
             </div>
