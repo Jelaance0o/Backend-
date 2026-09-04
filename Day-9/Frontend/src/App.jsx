@@ -5,30 +5,31 @@ const App = () => {
   const [notes, setNotes] = useState([]);
 
   const fetchNotes = ()=>{
-    axios.get("http://localhost:3000/api/notes")
-    .then((res)=>{
-      setNotes(res.data.notes)
-    })
+    axios.get("https://backend-o7gl.onrender.com//api/notes").then((res) => {
+      setNotes(res.data.notes);
+    });
   }
 
   const submitHandler = (e)=>{
     e.preventDefault()
     const {title, description } = e.target.elements //destructure
     console.log (title.value,description.value)
-    axios.post("http://localhost:3000/api/notes" , {
-      title : title.value,   
-      description : description.value
-    })
-    .then(fetchNotes)
+    axios
+      .post("https://backend-o7gl.onrender.com//api/notes", {
+        title: title.value,
+        description: description.value,
+      })
+      .then(fetchNotes);
   }
   
   const deleteHandler = (dets)=>{
     console.log(dets);
-    axios.delete("http://localhost:3000/api/notes/"+dets)
-    .then((res=>{
-      console.log(res.data)
-      fetchNotes()
-    }))
+    axios
+      .delete("https://backend-o7gl.onrender.com//api/notes/" + dets)
+      .then((res) => {
+        console.log(res.data);
+        fetchNotes();
+      });
   }
   useEffect(()=>{
     fetchNotes()
