@@ -5,7 +5,7 @@ const App = () => {
   const [notes, setNotes] = useState([]);
 
   const fetchNotes = ()=>{
-    axios.get("https://backend-o7gl.onrender.com//api/notes").then((res) => {
+    axios.get("https://backend-o7gl.onrender.com/api/notes").then((res) => {
       setNotes(res.data.notes);
     });
   }
@@ -15,7 +15,7 @@ const App = () => {
     const {title, description } = e.target.elements //destructure
     console.log (title.value,description.value)
     axios
-      .post("https://backend-o7gl.onrender.com//api/notes", {
+      .post("https://backend-o7gl.onrender.com/api/notes", {
         title: title.value,
         description: description.value,
       })
@@ -25,7 +25,7 @@ const App = () => {
   const deleteHandler = (dets)=>{
     console.log(dets);
     axios
-      .delete("https://backend-o7gl.onrender.com//api/notes/" + dets)
+      .delete("https://backend-o7gl.onrender.com/api/notes/" + dets)
       .then((res) => {
         console.log(res.data);
         fetchNotes();
