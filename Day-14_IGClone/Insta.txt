@@ -1,0 +1,31 @@
+==> Authentication
+ => registration  {1. user data save karna 2. token user ko dedena}
+ => login 
+ => logout (token blacklisting)
+ => [OTP Based registration]
+ 
+
+ ===> post 
+ => create ={
+  caption:string;
+  img_url:String;
+  user:userId,
+  createdAt : data and time
+ }
+
+ => can see feed
+ => like post (collections types)
+ => save post
+ 
+ ===> user
+ => follow
+ =>followers
+
+Schema
+user ={
+    username:String,
+    email:String,
+    password:String,
+    bio:String,
+    profile_image:String   
+}
